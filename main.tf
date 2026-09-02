@@ -1,11 +1,4 @@
-resource "local_file" "pet" {
-  filename = "pets.txt"
-  content  = "we love pets!"
+resource "local_file" "sample" {
+  filename = "sample.txt"
+  content  = "Terraform executed successfully through Jenkins!"
 }
-resource "random_pet" "mypet" {
-  prefix    = "MR"
-  separator = "."
-  length    = "2"
-}
-
-data "aws_caller_identity" "current" {}
