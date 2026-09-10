@@ -1,11 +1,19 @@
 pipeline {
     agent any
 
+    environment {
+        TF_HOME = tool(
+            name: 'terraform',
+            type: 'org.jenkinsci.plugins.terraform.TerraformInstallation'
+        )
+        PATH = "${TF_HOME}:${env.PATH}"
+    }
+
     stages {
 
-        stage('Terraform Version') {
+        stage('Checkout') {
             steps {
-                sh 'terraform version'
+                checkout scm
             }
         }
 
